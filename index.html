@@ -103,7 +103,7 @@
                     <input type="text" placeholder="Введите ваше имя*">
                 </div>
                 <div class="input">
-                    <input type="text" placeholder="Введите ваш номер телефона*">
+                    <input type="text" placeholder="Введите ваш номер телефона*" class="input_phone tel">
                 </div>
                 <div class="input">
                     <textarea placeholder="Дополнительная информация"></textarea>
@@ -126,7 +126,11 @@
                 <div class="catalog__box">
                     <div class="aside">
                         <div class="aside__wrap">
-                            <h5 class="aside__title">Каталог</h5>
+                            <button class="aside__title">Каталог
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12" fill="none">
+                                    <path d="M0 10L10 0L20 10L18.225 11.775L10 3.55L1.775 11.775L0 10Z" fill="white"/>
+                                </svg>
+                            </button>
                             <ul>
                                 <li>
                                     <a href="#">Рентгеновские дифрактометры</a>
@@ -244,7 +248,11 @@
         </section>
         <section class="posts">
             <div class="container">
-                <h2>Новости</h2>
+                <div class="posts__tab">
+                    <h2 class="active">Новости</h2>
+                    <h2>Статьи</h2>
+                    <a href="#" class="all-page">Все новости</a>
+                </div>
                 <div class="posts__grid">
                     <a href="#" class="posts__item">
                         <div class="posts__img">

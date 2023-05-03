@@ -105,6 +105,10 @@ ul, ol {
     line-height: 22px;
     color: #FFFFFF;
     border: 0;
+    transition: all .2s ease;
+}
+.main_btn:hover {
+    background: #0B8BB5;
 }
 .btn2 {
     display: flex;
@@ -118,9 +122,15 @@ ul, ol {
     font-size: 16px;
     line-height: 22px;
     color: #34B1DA;
+    transition: all .2s ease;
     svg {
         margin-right: 10px;
     }
+}
+.btn2:hover {
+    background: #0B8BB5;
+    border-color: #0B8BB5;
+    color: #FFFFFF;
 }
 
 // modal
@@ -319,6 +329,14 @@ ul, ol {
         justify-content: center;
         border: 0;
         background: transparent;
+        path {
+            transition: all .2s ease;
+        }
+    }
+    .btn:hover {
+        path {
+            stroke: #086AA2;
+        }
     }
 }
 
@@ -361,12 +379,14 @@ ul, ol {
     border-radius: 40px;
     ul {
         padding: 32px 24px;
+        overflow: hidden;
     }
     li {
         margin-bottom: 20px;
+        position: relative;
     }
     li:last-child {
-        margin-bottom: 0;
+        margin-bottom: 8px;
     }
     a {
         font-weight: 500;
@@ -374,8 +394,32 @@ ul, ol {
         line-height: 22px;
         color: #2F2F2F;
     }
+    a::after {
+        content: "";
+        width: 4px;
+        min-height: 40px;
+        height: 100%;
+        background: #34B1DA;
+        position: absolute;
+        top: 50%;
+        right: -24px;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: all .2s ease;
+    }
+    // a:hover {
+    //     color: #34B1DA;
+    // }
+    a:hover::after {
+        opacity: 1;
+    }
+    .active::after {
+        opacity: 1;
+    }
 }
 .aside__title {
+    display: flex;
+    width: 100%;
     padding: 14px 24px;
     background: #34B1DA;
     border-radius: 40px;
@@ -383,6 +427,10 @@ ul, ol {
     font-size: 20px;
     line-height: 27px;
     color: #FFFFFF;
+    border: 0;
+    svg {
+        display: none;
+    }
 }
 .catalog__content {
     max-width: 892px;
@@ -439,11 +487,55 @@ ul, ol {
 // posts
 .posts {
     h2 {
-        margin-bottom: 40px;
+        margin-bottom: 0;
     }
     .container {
         padding-bottom: 80px;
     }
+}
+.title_top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+.posts__dates {
+    display: flex;
+    align-items: center;
+    a {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        color: #2F2F2F;
+        margin-left: 16px;
+    }
+    a:hover {
+        text-decoration-line: underline;
+        color: #34B1DA;
+    }
+}
+.posts__tab {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 54px;
+    h2 {
+        margin-right: 32px;
+        color: rgba(47, 47, 47, 0.5);
+        cursor: pointer;
+    }
+    .active {
+        color: #2F2F2F;
+    }
+}
+.all-page {
+    margin-left: auto;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    text-decoration-line: underline;
+        color: #34B1DA;
 }
 .posts__grid {
     display: grid;
@@ -881,6 +973,44 @@ ul, ol {
 
 // media
 @media screen and (max-width: 768px) {
+    .aside__title {
+        align-items: center;
+        justify-content: space-between;
+        svg {
+            display: block;
+            transform-origin: center center;
+            transform: rotate(-180deg);
+        }
+    }
+    .aside__title.close {
+        svg {
+            transform: translateY(-2px) rotate(0);
+        }
+    }
+    .aside__title.close + ul {
+        height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .posts__dates {
+        width: 100%;
+        margin-top: 36px;
+    }
+    .posts__dates a {
+        margin-left: 0;
+        margin-right: 16px;
+    }
+    .posts__tab {
+        margin-bottom: 32px;
+    }
+    .posts__tab h2 {
+        margin-right: 24px;
+    }
+    .all-page {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 32px;
+    }
     .modal {
         padding: 150px 16px;
     }
@@ -1128,7 +1258,7 @@ ul, ol {
         line-height: 33px;
         margin-bottom: 24px;
     }
-    .posts h2 {
+    .title_top {
         margin-bottom: 32px;
     }
     .posts__grid {
