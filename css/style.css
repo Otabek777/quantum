@@ -511,6 +511,8 @@ ul, ol {
   margin-bottom: 8px;
 }
 .aside__wrap a {
+  display: block;
+  width: 100%;
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
@@ -1223,7 +1225,27 @@ ul, ol {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
+  .header__navbar ul a {
+    padding: 17px 24px;
+  }
+  .header__search input {
+    width: 300px;
+  }
+  .header__title {
+    max-width: 240px;
+  }
+  .catalog__content {
+    max-width: calc(100% - 300px);
+  }
+}
+@media screen and (max-width: 1090px) {
+  .container {
+    max-width: 768px;
+  }
+  .catalog__content {
+    max-width: 100%;
+  }
   .aside__title {
     -webkit-box-align: center;
         -ms-flex-align: center;
