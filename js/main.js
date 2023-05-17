@@ -92,3 +92,7 @@ if(document.querySelector('.input_phone')) {
     
     });
 };
+
+$(".header__language .btn").click(function() {
+    $(this).toggleClass("open");
+});
